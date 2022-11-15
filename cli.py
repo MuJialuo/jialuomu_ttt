@@ -5,6 +5,7 @@
 
 from logic import make_empty_board
 from logic import get_winner
+import random
 
 if __name__ == '__main__':
     board = make_empty_board()
@@ -13,6 +14,8 @@ if __name__ == '__main__':
     now = None
     move = 0
 
+    botornot = input("Do you want to play with a bot? (type y or n): ")
+
     while winner == None:
         # determine this turn's character
         if (turn + 2) % 2 == 0:
@@ -20,12 +23,24 @@ if __name__ == '__main__':
         else:
             now = 'O'
 
-        print("X: take a turn!")
+        print(now, "take a turn!")
         print(board[0],'\n',board[1],'\n',board[2],'\n')
         print('[1, 2, 3]\n[4, 5, 6]\n[7, 8, 9]')
 
-        move = input("your move (example: 1): ")
-        move = int(move)
+        if botornot == 'y' and (turn + 2) % 2 == 1:
+            print("'O' - bot move:")
+            good_random = 0
+            while good_random == 0:
+                movetobe = random.randint(1,9)
+                print('O move', movetobe)
+                good_random = 1
+                #test code here, tbd
+            move = movetobe
+                
+        else:
+            move = input("your move (example: 1): ")
+            move = int(move)
+
         #if move < 1 or move > 9:
         #   print('input error, not in range')
         if move == 1:
@@ -69,5 +84,6 @@ if __name__ == '__main__':
         if winner != None:
             print('winner is: ', winner, '!')
         turn = turn + 1
+        print('turn = ', turn)
 
         # FIXME

@@ -84,6 +84,6 @@ if __name__ == '__main__':
         if winner != None:
             print('winner is: ', winner, '!')
         turn = turn + 1
-        print('turn = ', turn)
+        print('turn: ', turn)
 
         # FIXME

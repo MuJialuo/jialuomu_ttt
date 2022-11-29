@@ -2,6 +2,8 @@
 # or output happens here. The logic in this file
 # should be unit-testable.
 
+# updated Nov 29, 2022
+# jialuomu@uw.edu
 
 def make_empty_board():
     return [
